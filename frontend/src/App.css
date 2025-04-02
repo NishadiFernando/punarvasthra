@@ -1,0 +1,233 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap');
+
+.App {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f5f6; /* Soft pink background for the entire page */
+}
+
+/* Navbar Styles */
+.custom-navbar {
+    background: linear-gradient(90deg, #4F032A 0%, #8B2E5A 100%) !important;
+    padding: 15px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.custom-logo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    color: #D4AF37 !important; /* Gold color for the logo */
+    position: relative;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.custom-logo:hover {
+    transform: scale(1.05);
+    color: #E8C547 !important; /* Slightly lighter gold on hover */
+}
+
+/* Decorative element (saree drape) below the logo */
+.custom-logo::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 5px;
+    background: linear-gradient(to right, #D4AF37, transparent);
+    border-radius: 5px;
+}
+
+.nav-link-custom {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #ffffff !important;
+    margin: 0 15px; /* Adjusted margin for better spacing */
+    padding: 8px 10px !important; /* Adjusted padding for better alignment */
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+    white-space: nowrap; /* Ensures the text stays in one line */
+}
+
+.nav-link-custom::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #F5C6CB; /* Cherry blossom pink underline */
+    transition: width 0.3s ease;
+}
+
+.nav-link-custom:hover {
+    color: #F5C6CB !important;
+    transform: translateY(-2px);
+}
+
+.nav-link-custom:hover::after {
+    width: 100%;
+}
+
+/* Ensure nav items are in a single line */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Hero Section with Swirling Cherry Blossoms */
+.hero-section {
+    position: relative;
+    background: linear-gradient(rgba(79, 3, 42, 0.7), rgba(139, 46, 90, 0.7)), url('https://images.unsplash.com/photo-1603380353725-f8a4d39cc221?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+
+/* Cherry Blossom Animation */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/cherry-blossoms.png') repeat;
+    opacity: 0.2;
+    animation: cherryBlossomFall 20s linear infinite;
+}
+
+@keyframes cherryBlossomFall {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 1000px 1000px;
+    }
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.5); /* Soft gold glow */
+    color: #ffffff;
+    position: relative;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; /* Increased font size for better readability */
+    font-weight: 400;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+    text-shadow: 0 0 10px rgba(245, 198, 203, 0.5); /* Soft cherry blossom pink glow */
+    color: #F5C6CB; /* Cherry blossom pink */
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Glowing effect for radiant elegance */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px rgba(212, 175, 55, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(212, 175, 55, 0.7), 0 0 30px rgba(212, 175, 55, 0.5);
+    }
+}
+
+/* Saree Card Styles */
+.saree-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+/* Add a subtle cherry blossom border on hover */
+.saree-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    border: 2px solid #F5C6CB;
+}
+
+.saree-image {
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.saree-card:hover .saree-image {
+    transform: scale(1.05);
+}
+
+.saree-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.saree-price {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #4F032A;
+    margin-bottom: 15px;
+}
+
+.saree-details {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.saree-details p {
+    margin-bottom: 5px;
+}
+
+.saree-details strong {
+    color: #2c3e50;
+}
+
+.color-swatch {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-right: 5px;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+}
+
+.view-details-btn {
+    background-color: #4F032A;
+    border: none;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.view-details-btn:hover {
+    background-color: #8B2E5A;
+    transform: scale(1.05);
+}
+

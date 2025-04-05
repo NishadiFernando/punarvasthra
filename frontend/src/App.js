@@ -8,6 +8,13 @@ import AddSaree from './add_saree';
 import AdminEdit from './admin_edit';
 import AboutUs from './AboutUs';
 import Admin from './Admin';
+import TailorHome from './tailor/TailorHome';
+import CustomizationPage from './tailor/CustomizationPage';
+import SareeOptions from './tailor/SareeOptions';
+import CustomizationForm from './tailor/CustomizationForm';
+import TailorAdmin from './tailor/TailorAdmin';
+import OurTailors from './components/OurTailors';
+import TailorDashboard from './tailor/TailorDashboard';
 
 // Customer Page (View Sarees with All Details)
 function CustomerPage({ showWishlist, setShowWishlist, showSearch, setShowSearch }) {
@@ -837,16 +844,15 @@ function App() {
     const handleWishlistClick = (e) => {
         e.preventDefault();
         setShowWishlist(prev => !prev);
-        setShowSearch(false); // Close search when opening wishlist
+        setShowSearch(false);
     };
 
     const handleSearchClick = (e) => {
         e.preventDefault();
         setShowSearch(prev => !prev);
-        setShowWishlist(false); // Close wishlist when opening search
+        setShowWishlist(false);
     };
 
-    // Reset views when changing routes
     useEffect(() => {
         setShowWishlist(false);
         setShowSearch(false);
@@ -854,7 +860,6 @@ function App() {
 
     return (
         <div className="App">
-            {/* Conditionally render the Navbar only on the customer page */}
             {location.pathname !== '/admin' && 
              location.pathname !== '/admin/add' && 
              location.pathname !== '/admin/edit' && (
@@ -868,7 +873,7 @@ function App() {
                             <Nav className="me-auto">
                                 <Nav.Link as={Link} to="/" className="nav-link-custom">Saree Collection</Nav.Link>
                                 <Nav.Link href="#flash-sale" className="nav-link-custom">Flash Sale</Nav.Link>
-                                <Nav.Link href="#customization" className="nav-link-custom">Customization</Nav.Link>
+                                <Nav.Link as={Link} to="/customization" className="nav-link-custom">Customization</Nav.Link>
                                 <Nav.Link href="#sell-your-saree" className="nav-link-custom">Sell Your Saree</Nav.Link>
                                 <Nav.Link as={Link} to="/about" className="nav-link-custom">About Us</Nav.Link>
                             </Nav>
@@ -900,7 +905,6 @@ function App() {
                 </Navbar>
             )}
 
-            {/* Routes */}
             <Routes>
                 <Route 
                     path="/" 
@@ -917,6 +921,21 @@ function App() {
                 <Route path="/admin/add" element={<AddSaree />} />
                 <Route path="/admin/edit" element={<AdminEdit />} />
                 <Route path="/about" element={<AboutUs />} />
+                <Route path="/customization" element={<TailorHome />} />
+                <Route path="/customize" element={<CustomizationPage />} />
+                <Route path="/tailor-admin" element={<TailorAdmin />} />
+                <Route path="/tailor-dashboard" element={<TailorDashboard />} />
+                <Route path="/our-tailors" element={<OurTailors />} />
+                <Route path="/website-saree" element={<SareeOptions />} />
+                <Route path="/own-saree" element={<SareeOptions />} />
+                <Route path="/customize/website-saree" element={<CustomizationForm isWebsiteSaree={true} />} />
+                <Route path="/customize/website-lehenga" element={<CustomizationForm isWebsiteSaree={true} />} />
+                <Route path="/customize/lehenga" element={<CustomizationForm />} />
+                <Route path="/customize/home-decor" element={<CustomizationForm />} />
+                <Route path="/customize/frock" element={<CustomizationForm />} />
+                <Route path="/customize/bags" element={<CustomizationForm />} />
+                <Route path="/customize/kitchen" element={<CustomizationForm />} />
+                <Route path="/customize/bedding" element={<CustomizationForm />} />
             </Routes>
         </div>
     );
